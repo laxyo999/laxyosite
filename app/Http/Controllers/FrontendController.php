@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Page;
 use App\PageCategory;
 use App\ImgUpload;
-
-
+use App\Post;
 class FrontendController extends Controller
 {
     public function about(){
@@ -47,8 +46,16 @@ class FrontendController extends Controller
     	return view('front-end.vendor-registration');
     }
     public function career(){
-    	return view('front-end.career');
+        $post = Post::all();
+        return view('front-end.career', compact('post'));
     }
+    public function careerform($id){
+        $post = Post::findOrFail($id);
+        return view('front-end.careerformapply', compact('post'));
+    }
+
+
+
     public function laxyo_group_companies(){
         return view('front-end.laxyo-group-companies');
     }
@@ -58,4 +65,6 @@ class FrontendController extends Controller
     public function operation_maintenance(){
         return view('front-end.operation-and-maintenance');
     }
+
+
 }

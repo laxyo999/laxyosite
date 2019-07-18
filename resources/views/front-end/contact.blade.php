@@ -1,10 +1,9 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Contact - Laxyo Energy Limited</title>
-</head>
+@section('title','Contact - Laxyo Energy Limited')
+
 <!-- End Header -->		
 <!--Start TITLE PAGE-->	
+@section('body')
 <section class="title_page bg_3">     
         		
 
@@ -41,40 +40,30 @@
 		</div>						
 	    <p>Reach out to us and we'll respond as soon as possible.</p>
 
-		<div class="alert alert-success hidden alert-dismissable" id="contactSuccess">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<strong>Success!</strong> Your message has been sent to us.
-		</div>
-		<div class="alert alert-danger hidden" id="contactError">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<strong>Error!</strong> <span class="errorMessage">There was an error sending your message.</span>
-		</div>
-
 			<form id="contactForm" action=""  method="POST" class="jogjaContact">
+				
 				<div class="row">
 
-					<div class="form-group">
-						<div class="col-lg-6 col-md-6 col-sm-12">
+						<div class="col-md-6">
 							<label>Your Name <span style="color: #F34D2C;">*</span></label>
 							<input id="name" name="name" class="form-control" maxlength="100" value="" type="text" required >
 						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="col-md-6">
 							<label>Your E-Mail <span style="color: #F34D2C;">*</span></label>
 							<input id="email" name="email" class="form-control" maxlength="100"  value="" type="email" required>
 						</div>
-					</div>
+					
 				</div>
 				<div class="row">
-					<div class="form-group">
+					
 						<div class="col-md-12 col-lg-12 col-sm-12">
 							<label>Your Address <span style="color: #F34D2C;">*</span></label>
 							<input id="address" name="address" class="form-control" maxlength="100"  value="" type="text" required>
 						</div>
-					</div>
+					
 				</div>
 
 				<div class="row">
-					<div class="form-group">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<label>Your City <span style="color: #F34D2C;">*</span></label>
 							<input id="city" name="city" class="form-control" maxlength="100"  value="" type="text" required>
@@ -83,11 +72,9 @@
 							<label>PIN</label>
 							<input id="pin" name="pin" class="form-control" maxlength="100" value="" type="text" required>
 						</div>
-					</div>
 				</div>
 
 				<div class="row">
-					<div class="form-group">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<label>Select State <span style="color: #F34D2C;">*</span></label>
 							<select id="state" name="state" class="form-control select-cont" required>
@@ -133,10 +120,8 @@
 							<label>Country <span style="color: #F34D2C;">*</span></label>
 							<input id="country" name="country" class="form-control" maxlength="100" value="" type="text" required>
 						</div>
-					</div>
 				</div>
 				<div class="row">
-					<div class="form-group">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<label>Phone No.(With Area Code) <span style="color: #F34D2C;">*</span></label>
 							<input id="contact" name="contact" class="form-control" maxlength="100"  value="" type="text" required>
@@ -145,16 +130,13 @@
 							<label>Mobile No. <span style="color: #F34D2C;">*</span></label>
 							<input id="mobile" name="mobile" class="form-control" maxlength="100"  value="" type="text" required>
 						</div>
-					</div>
 				</div>
 				
 				<div class="row mrgb_20">
-					<div class="form-group">
 						<div class="col-md-12 col-lg-12 col-sm-12">
 							<label>Comments <span style="color: #F34D2C;">*</span></label>
 							<textarea id="message" name="message" rows="4" cols="51"  maxlength="5000" required></textarea>
 						</div>
-					</div>
 				</div>
 		        <!--alert div success-->
 					  	<div class="alert alert-success" id="contact12" style="display:none;"> 

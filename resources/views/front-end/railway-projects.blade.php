@@ -1,12 +1,11 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Railway contractors India private railway laying linking services.</title>  
+@section('title','Railway contractors India private railway laying linking services.')
+@section('meta')
   <meta name="description" content="Laxyo group of energy India based approved railway contractors ,o&m service providers working efficiently on railway track laying and linking, railway contractors, railway track laying."/>    
   <meta name="keywords" content="Operation and maintenance, operation and maintenance company, railway track laying, railway contractors, railway signalling contractors, railway track linking, laying and linking, railway contractors India, railway signaling, private siding railway signalling. "/>   
-    
-</head>
-<!--Start TITLE PAGE-->		
+@endsection
+<!--Start TITLE PAGE-->	
+@section('body')	
 <section class="title_page bg_3">			
 
 

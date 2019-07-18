@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('body')
-<head>
-<title>Laxyo Group of companies –Laxyo solution soft, Maa Gayatri Hospital, Lakshya international school, apnagps, DBF, yolaxinfraenergy.</title>
+@section('title','Laxyo Group of companies –Laxyo solution soft, Maa Gayatri Hospital, Lakshya international school, apnagps, DBF, yolaxinfraenergy.')
+@section('meta')
 <meta name="description" content= "Laxyo Group of companies - Check out the different ventures and verticles of LaxyoGroup  in various sectors as of schools, hospitals, IT, energy auditing, operation and maintenance, contract based services railway contract based services."/>
 <meta name="keywords" content="IT Services, Hospitals in Ratlam, vehicles tracking device, discount brand factory Indore, franchise business M.P. , franchise stores in India, fleet management system, vehicle tracking device, vehicle tracking system, personal car tracking system."/>
-</head>
+@endsection
 
 <!--Start TITLE PAGE-->
+@section('body')
 <section class="title_page bg_3">
   
 <div class="container">

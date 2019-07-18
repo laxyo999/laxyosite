@@ -1,9 +1,8 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Vendor Registration - Laxyo Energy Limited</title>
-</head>
+@section('title','Vendor Registration - Laxyo Energy Limited')
+
 <!--Start TITLE PAGE-->		
+@section('body')
 <section class="title_page bg_3">			
 
 
@@ -45,7 +44,6 @@
    
 	<form id="vendorform" action="" method="POST" class="jogjaContact">
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Company Name <span style="color: #F34D2C;">*</span></label>
@@ -54,10 +52,8 @@
 						<input id="cname" name="cname" class="form-control" maxlength="100" value="" placeholder="Company Name" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Company Website</label>
@@ -66,11 +62,9 @@
 						<input id="cweb" name="cweb" class="form-control" maxlength="100" value="" placeholder="Company Website" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Contact Person Name <span style="color: #F34D2C;">*</span></label>
@@ -79,11 +73,9 @@
 						<input id="cpname" name="cpname" class="form-control" maxlength="100"  value="" placeholder="Contact Person Name" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Designation <span style="color: #F34D2C;">*</span></label>
@@ -92,10 +84,8 @@
 						<input id="designation" name="designation" class="form-control" maxlength="100"  value="" placeholder="Designation" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Email <span style="color: #F34D2C;">*</span></label>
@@ -104,10 +94,8 @@
 						<input id="email" name="email" class="form-control" maxlength="100"  value="" placeholder="Email" type="email" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Postal Address <span style="color: #F34D2C;">*</span></label>
@@ -116,11 +104,9 @@
 						<input id="paddress" name="paddress" class="form-control" maxlength="100"  value="" placeholder="Postal Address" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Telephone No. <span style="color: #F34D2C;">*</span></label>
@@ -129,10 +115,8 @@
 						<input id="telephone" name="telephone" class="form-control" maxlength="100"  value="" placeholder="Telephone No. (with area code)" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Mobile No. <span style="color: #F34D2C;">*</span></label>
@@ -141,10 +125,8 @@
 						<input id="mobile" name="mobile" class="form-control" maxlength="100"  value="" placeholder="Mobile No." type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Fax</label>
@@ -153,17 +135,15 @@
 						<input id="fax" name="fax" class="form-control" maxlength="100"  value="" placeholder="Fax (with area code)" type="text">
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Nature Of Business <span style="color: #F34D2C;">*</span></label>
 					</div>
 					<div class="col-md-9 col-lg-9 col-sm-12">
-						<select name="Nature Of Business" class="form-control select-cont"  required>
+						<select name="Nature_Of_Business" class="form-control select-cont"  required>
 				          	<option selected="">Select</option>
 				          	<option value="Manufacturer">Manufacturer</option>
 				         	<option value="Agent or Dealer">Agent or Dealer</option>
@@ -175,11 +155,9 @@
 				        </select>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Products <span style="color: #F34D2C;">*</span></label>
@@ -225,11 +203,9 @@
 				        </select>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-md-12 col-lg-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 					<label>Existing Customers</label>
@@ -239,11 +215,9 @@
 					<p><small>(Please Provide The Following Information Whichever Applicable.)</small></p>
 				</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">PAN #</label>
@@ -252,10 +226,8 @@
 						<input id="pan" name="pan" class="form-control" maxlength="100" value="" placeholder="PAN" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">TAN #</label>
@@ -265,9 +237,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">TIN #</label>
@@ -276,11 +246,9 @@
 						<input id="tin" name="tin" class="form-control" maxlength="100" value="" placeholder="TIN" type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">SSI Registration #</label>
@@ -289,10 +257,8 @@
 						<input id="ssi" name="ssi" class="form-control" maxlength="100" value="" placeholder="SSI Registration No." type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Excise #</label>
@@ -301,10 +267,8 @@
 						<input id="excise" name="excise" class="form-control" maxlength="100" value="" placeholder="Excise No." type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
-			<div class="form-group">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<label class="marr">Service Tax #</label>
@@ -313,7 +277,6 @@
 						<input id="stax" name="stax" class="form-control" maxlength="100" value="" placeholder="Service Tax No." type="text" required>
 					</div>
 				</div>
-			</div>
 		</div>
         
 		<div class="row">

@@ -44,3 +44,23 @@ Route::get('/career', 'FrontendController@career');
 Route::get('/laxyo_group_companies', 'FrontendController@laxyo_group_companies');
 Route::get('/services', 'FrontendController@services');
 Route::get('/operation_maintenance', 'FrontendController@operation_maintenance');
+
+//for submit form
+Route::post('/career', 'CareerController@submit');
+Route::get('/admin-career', 'AdminController@index');
+Route::delete('/admin-career/{id}', 'AdminController@cdestroy')->name('cdel');
+Route::get('/career-form-apply/{id}','FrontendController@careerform');
+
+//for feedback
+Route::post('/feedback', 'CareerController@feedback');
+Route::get('/admin-feedback', 'AdminController@feedback');
+Route::delete('/admin/{id}', 'AdminController@fdestroy')->name('fdel');
+
+//for contact
+Route::get('/admin-contact', 'AdminController@contact');
+Route::get('/admin-vender', 'AdminController@vender');
+Route::get('/admin-fileDownload', 'AdminController@fileDownload')->name('download');
+
+//for new post
+
+Route::Resource('/admin-post', 'PostController');

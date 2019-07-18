@@ -162,56 +162,8 @@ $(document).ready(function(){
   });
   
   
-  //Ajax form submit
-    $("#submit_btn").click(function() { 
-        var proceed = true;
-        //simple validation at client's end
-        //loop through each field and we simply change border color to red for invalid fields       
-        $("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
-            $(this).css('border-color',''); 
-            if(!$.trim($(this).val())){ //if this field is empty 
-                $(this).css('border-color','red'); //change border color to red   
-                proceed = false; //set do not proceed flag
-            }
-            //check invalid email
-            var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
-            if($(this).attr("type")=="email" && !email_reg.test($.trim($(this).val()))){
-                $(this).css('border-color','red'); //change border color to red   
-                proceed = false; //set do not proceed flag              
-            }   
-        });
-       
-        if(proceed) //everything looks good! proceed...
-        {
-            //get input field values data to be sent to server
-            post_data = {
-                'user_name'     : $('input[name=name]').val(), 
-                'user_email'    : $('input[name=email]').val(), 
-                'country_code'  : $('input[name=phone1]').val(), 
-                'phone_number'  : $('input[name=phone2]').val(), 
-                'subject'       : $('select[name=subject]').val(), 
-                'msg'           : $('textarea[name=message]').val()
-            };
-            
-            //Ajax post data to server
-            $.post('contact_me.php', post_data, function(response){  
-                if(response.type == 'error'){ //load json data from server and output message     
-                    output = '<div class="error">'+response.text+'</div>';
-                }else{
-                    output = '<div class="success">'+response.text+'</div>';
-                    //reset values in all input fields
-                    $("#contact_form  input[required=true], #contact_form textarea[required=true]").val(''); 
-                }
-                $("#contact_form #contact_results").hide().html(output).slideDown();
-            }, 'json');
-        }
-    });
+  
     
-    //reset previously set border colors and hide all message on .keyup()
-    $("#contact_form  input[required=true], #contact_form textarea[required=true]").keyup(function() { 
-        $(this).css('border-color',''); 
-        $("#result").slideUp();
-    });
   
 });
 </script>
@@ -244,19 +196,23 @@ $(window).resize(function() {
     <div class="floating-form-heading">We'd like your feedback!</div>
     <div id="contact_results"></div>
     <div id="contact_body">
-        <form id="feedback" action="" method="POST">
+        <form id="feedback" action="">
+          @csrf
+         
+
         <label><span>Name <span class="required">*</span></span>
           <input type="text" name="name" id="name" required="true" class="input-field">
         </label>
         <label><span>Email <span class="required">*</span></span>
-          <input type="email" name="email" required="true" class="input-field">
+          <input type="email" name="email" id="email" required="true" class="input-field">
         </label>
         <label><span>Phone <span class="required">*</span></span>
-          <input type="text" name="phone1" maxlength="2" placeholder="+91" required="true" class="tel-number-field">
-          —<input type="text" name="phone2" maxlength="10" required="true" class="tel-number-field long">
+          <input type="text" name="phone1" id="phone1" maxlength="2" placeholder="+91" required="true" class="tel-number-field">
+          —<input type="text" name="phone2" id="phone2" maxlength="10" required="true" class="tel-number-field long">
+          <p id="phone2_err" class="text-danger">Number should be 10 digit</p>
         </label>
         <label for="subject"><span>Profile <span class="required">*</span></span>
-            <select name="subject" class="select-field">
+            <select name="subject" id="subject" class="select-field">
               <option value="" selected="selected">Select</option>
                 <option value="Journalist">Journalist</option>
                 <option value="Customer">Customer</option>
@@ -270,46 +226,64 @@ $(window).resize(function() {
           <textarea name="message" id="message" class="textarea-field" required="true"></textarea>
         </label>
         <label>
-          <span>&nbsp;</span><input type="submit" id="submit_btn" value="Submit">
+          <span>&nbsp;</span><button class="btn btn-danger" id="feedbackbtn" type="submit">Submit</button>
         </label>
-        <div class="alert alert-success" id="success-alert" style="display:none;"> 
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Success! </strong>
-   Feedback Form Submit Successfully.
-</div>
+       
         
         </form>
     </div>
 </div>
 </div>
   
-    <script>
-      $(function () {
-
-        $('#feedback').on('submit', function (e) {
-
-          e.preventDefault();
-
-          $.ajax({
-            type: 'post',
-            url: 'feedback-email.php',
-            data: $('form').serialize(),
-            success: function () {
-            setTimeout(function() { $("#success-alert").show().fadeOut(10000); }, 500);
-            $("#feedback")[0].reset();
-            }
-          });
-
-        });
-
-      });
-    </script>
-
-
-
 <!-- feedback form end -->
 <!-- End Header  -->
-    <!-- container -->
+<script>
+  $(document).ready(function(){
+    $('#phone2_err').hide();
+    $cf = $('#phone2');
+    $cf.blur(function(e){
+        phone = $(this).val();
+        phone = phone.replace(/[^0-9]/g,'');
+        if (phone.length != 10)
+        {
+            $('#phone2_err').show();
+            $('#phone2').val('');
+            $('#phone2').focus();
+
+        }else{
+          $('#phone2_err').hide();
+        }
+    });
+ });
+
+
+           $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+          $('#feedbackbtn').on('click',function (e) {
+               e.preventDefault();
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var phone1 = $('#phone1').val();
+                var phone2 = $('#phone2').val();
+                var subject = $('#subject').val();
+                var message = $('#message').val();
+              
+              $.ajax({
+                type: 'POST',
+                url: '/feedback',
+                data: {name: name, email: email,phone1: phone1,phone2:phone2,subject:subject,message:message},
+                success: function (data) {
+                    alert('success');
+                    $('#feedback')[0].reset();
+                  }
+              });
+
+        });
+  
+    </script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

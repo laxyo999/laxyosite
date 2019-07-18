@@ -2025,22 +2025,27 @@ div.testimonial-arrow-down.tertiary{
 }
 
 .widget_content ul.archives_list li{
-    list-style:none;
-    margin-bottom:3px
+    margin-bottom:3px;
+    list-style: none
 }
+.widget_content1 ul.archives_list li{
+    list-style: none
+}
+
 .widget_content ul.archives_list li a{
     color:#777;
     font-family:Open Sans;
     font-size:12px;
     line-height:30px;
     font-weight:600;
+
 }
 .widget_content1 ul.archives_list li a{
     color:#eee;
     font-family:Open Sans;
     font-size:13px;
     line-height:29px;
-    font-weight:600
+    font-weight:600;
 }
 .widget_content ul.archives_list li a:hover,.widget_content ul.archives_list li a:hover i,.widget_content ul.arrows_list1 li a:hover i,.widget_content1 ul.archives_list li a:hover,.widget_content1 ul.arrows_list li a:hover{
     color:#e74c3c;
@@ -5249,7 +5254,8 @@ div.grid_columns [class*=col-lg-] span.col_block{
     transition:all ease 1s
 }
 .vendor:hover{
-    color:#E74C3C!important
+    color:#E74C3C!important;
+    text-decoration: none;
 }
 .title_wmm>img{
     margin-top:15px;

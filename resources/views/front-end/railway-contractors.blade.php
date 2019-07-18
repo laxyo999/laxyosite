@@ -1,11 +1,13 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Railway Contractors, Track Laying & Linking, Private Railway Siding Maintenance &amp; Railway Construction</title>  
+
+@section('title', 'Railway Contractors, Track Laying & Linking, Private Railway Siding Maintenance &amp; Railway Construction')
+
+@section('meta')
   <meta name="description" content="Laxyo energy group is India based approved railway contractors ,o&m service providers working efficiently on railway track laying and linking, railway contractors, railway track laying and railway construction company"/>    
-  <meta name="keywords" content="private railway siding maintenance company, railway construction company, railway track laying, railway contractors, railway signaling contractors, railway track linking, laying and linking, railway contractors India, railway signaling, private siding railway signalling, railway track S & T Contractors, signaling contractors, railway signaling. "/>   
-    
-</head>
+  <meta name="keywords" content="private railway siding maintenance company, railway construction company, railway track laying, railway contractors, railway signaling contractors, railway track linking, laying and linking, railway contractors India, railway signaling, private siding railway signalling, railway track S & T Contractors, signaling contractors, railway signaling. "/>  
+@endsection
+
+@section('body')
 <!--Start TITLE PAGE-->		
 <section class="title_page bg_3">			
 

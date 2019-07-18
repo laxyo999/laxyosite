@@ -119,7 +119,7 @@
               <div class="icon"> <i class="fa fa-eye" aria-hidden="true"></i> </div>
               <div class="serv_detail">
                 <h3>Vision</h3>
-                <p>We are working with the vision to become India’s finest service providers while it comes to railway, <b><a href="http://www.laxyo.com/">operation and maintenance</a></b>(O&amp;M) service providing company with in next few years. Excel as the top most contractors for railway and O&amp;M work. Achieve long-term goodwill by work offered and good clientele base.</p>
+                <p>We are working with the vision to become India’s finest service providers while it comes to railway, <b><a href="{{url('/operation_maintenance')}}">operation and maintenance</a></b>(O&amp;M) service providing company with in next few years. Excel as the top most contractors for railway and O&amp;M work. Achieve long-term goodwill by work offered and good clientele base.</p>
               </div>
             </div>
           </div>

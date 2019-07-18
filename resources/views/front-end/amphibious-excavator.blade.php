@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Amphibious Excavator | Laxyo Energy Ltd.</title>  
+@section('title','Amphibious Excavator | Laxyo Energy Ltd.')
+@section('meta')
   <meta name="description" content= "Laxyo group offer amphibious excavator dredging equipment on rental and contract basis with small to big capacity full-fledged quality-focused service."/>    
   <meta name="keywords" content="amphibious excavator, amphibious excavator rental, amphibious excavator contractors, small amphibious excavator, amphibious excavator india"/> 
-</head>
+@endsection
 
-<!--Start TITLE PAGE-->		
+<!--Start TITLE PAGE-->	
+@section('body')	
 <section class="title_page bg_3">			
 
 
