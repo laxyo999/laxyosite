@@ -5,30 +5,39 @@
   
     <meta name="description" content= "Laxyo Energy Ltd. is a leading railway contract based service provider in India. Focused on delivering core services for complete railway work, operation and maintenance, laying and linking, private railway siding. Get the quality services for railway work, O&M in India."/>    
     <meta name="keywords" content="railway contract based services, operation and maintenance, operation and maintenance of power plants, railway laying and linking, private railway siding, education consultant, private railway siding consultant"/>  
+<<<<<<< HEAD
 @endsection
 @section('body')
  <section class="title_page bg_3">     
         
+=======
 
-<div class="container">       
-            <div class="row">         
-                <div class="col-lg-12 col-md-12 col-sm-12">           
+</head>
+
+<!--Start TITLE PAGE-->   
+<section class="title_page bg_3">     
+    
+>>>>>>> d3d2f12861f51b6c745f9b0a3aa17c8fbfda21a5
+
+    <div class="container">       
+        <div class="row">         
+            <div class="col-lg-12 col-md-12 col-sm-12">           
                 <h2>About Us</h2>           
                 <nav id="breadcrumbs">              
-                <ul>                
-                <li><a href="{{url('/')}}">Home</a></li>                          
-                <li>About Us</li>             
-                </ul>           
+                    <ul>                
+                        <li><a href="{{url('/')}}">Home</a></li>                          
+                        <li>About Us</li>             
+                    </ul>           
                 </nav>          
-                </div>        
-            </div>      
-        </div>    
-    </section>    
+            </div>        
+        </div>      
+    </div>    
+</section>    
 <!--End TITLE PAGE-->       
-    <!-- Start ABout Page -->   
-    <section class="content sb_right">      
-        <div class="container">       
-            <div class="row">         
+<!-- Start ABout Page -->   
+<section class="content sb_right">      
+    <div class="container">       
+        <div class="row">         
                 <!-- <div class="col-lg-6 col-md-6 col-sm-6">            
                     <div class="img-about">             
                         <img src="img/about/1.jpg" alt="">          
@@ -89,11 +98,11 @@
                 </div> 
                 <!--Sidebar Widget start-->
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                 @include('partials.sidebar')
-                </div>
-                <!--Sidebar Widget end-->
-            </div>
-        </div>
-    </section>
+                   @include('partials.sidebar')
+               </div>
+               <!--Sidebar Widget end-->
+           </div>
+       </div>
+   </section>
 
    @endsection
