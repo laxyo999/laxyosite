@@ -38,9 +38,15 @@ Route::get('/dredging_and_reclamation', 'FrontendController@dredging_and_reclama
 Route::get('/construction_equipment_rental_services', 'FrontendController@construction_equipment_rental_services');
 Route::get('/clients', 'FrontendController@clients');
 Route::get('/infrastructure', 'FrontendController@infrastructure');
-Route::get('/contact', 'FrontendController@contact');
+Route::get('/contact', 'FrontendController@contact')->name('contact');
+Route::post('/submitmyform', 'FrontendController@submitmyform');
+Route::get('/getStateList/{country_id}', 'FrontendController@getStateList');
+Route::get('/getCityList', 'FrontendController@getCityList');
 Route::get('/vendor_registration', 'FrontendController@vendor_registration');
+Route::post('/vendorform', 'FrontendController@vendorform');
 Route::get('/career', 'FrontendController@career');
 Route::get('/laxyo_group_companies', 'FrontendController@laxyo_group_companies');
 Route::get('/services', 'FrontendController@services');
 Route::get('/operation_maintenance', 'FrontendController@operation_maintenance');
+
+Route::get('/getStateList','FrontendController@getStateList');
