@@ -22,7 +22,7 @@
 		<table class="table table-bordered table-striped" id="vendertable">
 			<thead class="bg-dark" style="color: white;text-align: center;">
 				<tr style="width: 100%;">
-				<th width="5%">Id</th>
+				<th width="3%">Id</th>
 				<th width="5%">Company Name</th>
 				<th width="5%">Company Website</th>
 				<th width="5%">Contact Person Name</th>
@@ -41,10 +41,43 @@
 				<th width="5%">SSI Registration</th>
 				<th width="5%">Excise</th>
 				<th width="5%">Service Tax</th>
+				<th width="2%">Action</th>
 			</tr>
 			</thead>
-			
+			     
 			<tbody>
+				@foreach($data as $vender)
+				<tr>
+					<td>{{$vender->id}}</td>
+					<td>{{$vender->company_name}}</td>
+					<td>{{$vender->company_website}}</td>
+					<td>{{$vender->person_name}}</td>
+					<td>{{$vender->designation}}</td>
+					<td>{{$vender->email}}</td>
+					<td>{{$vender->postal_address}}</td>
+					<td>{{$vender->telephone_no}}</td>
+					<td>{{$vender->mobile_no}}</td>
+					<td>{{$vender->fax}}</td>
+					<td>{{$vender->nature_business}}</td>
+					<td>{{$vender->products}}</td>
+					<td>{{$vender->customers}}</td>
+					<td>{{$vender->pan}}</td>
+					<td>{{$vender->tan}}</td>
+					<td>{{$vender->tin}}</td>
+					<td>{{$vender->ssi_reg_no}}</td>
+					<td>{{$vender->excise_no}}</td>
+					<td>{{$vender->service_tax_no}}</td>
+					<td>
+						<a href="#" class="btn btn-danger" onclick="event.preventDefault(); if(confirm('Are you sure?')){
+		                  document.getElementById('delete-form-{{ $vender->id }}').submit();}"><span class="fa fa-trash"></span></a>
+
+		                  <form id="delete-form-{{ $vender->id }}" action="{{ route('venderdel', ['id' => $vender->id ]) }}" method="POST" style="display: none;">
+		                      @csrf
+		                      @method('delete')
+		                  </form>
+					</td>
+				</tr>
+				@endforeach
 			</tbody>
 
 		</table>

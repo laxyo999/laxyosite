@@ -46,16 +46,25 @@ class AdminController extends Controller
 
   //vender Registration
     public function vender(){
-          $data = Feedback::all(); 
+          $data = DB::table('vender_ragistration')->select('*')->get(); 
           return view('admin.vender', compact('data'));
           }
+    public function vdestroy($id){
+         DB::table('vender_ragistration')->delete($id);
+         $data = DB::table('vender_ragistration')->select('*')->get(); 
+         return view('admin.vender', compact('data'));
+    }      
 
 //contact
     public function contact(){
-      $data = Feedback::all(); 
-       return view('admin.contact', compact('data'));
+      $data = DB::table('contacts')->select('*')->get(); 
+      return view('admin.contact', compact('data'));
        }
-
+    public function condestroy($id){
+         DB::table('contacts')->delete($id);
+         $data = DB::table('contacts')->select('*')->get(); 
+         return view('admin.contact', compact('data'));
+    }  
 
     public function show($id){
     

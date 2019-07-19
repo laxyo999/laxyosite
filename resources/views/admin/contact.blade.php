@@ -37,20 +37,30 @@
 			</tr>
 			</thead>
 			<tbody>
+				@foreach($data as $con)
 			 <tr>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
-			 	<td></td>
+			 	<td>{{$con->id}}</td>
+			 	<td>{{$con->name}}</td>
+			 	<td>{{$con->email}}</td>
+			 	<td>{{$con->address}}</td>
+			 	<td>{{$con->city}}</td>
+			 	<td>{{$con->pin}}</td>
+			 	<td>{{$con->state}}</td>
+			 	<td>{{$con->country}}</td>
+			 	<td>{{$con->contact}}</td>
+			 	<td>{{$con->mobile}}</td>
+			 	<td>{{$con->message}}</td>
+			 	<td>
+                      <a href="#" class="btn btn-danger" onclick="event.preventDefault(); if(confirm('Are you sure?')){
+		                  document.getElementById('delete-form-{{ $con->id }}').submit();}"><span class="fa fa-trash"></span></a>
+
+		                  <form id="delete-form-{{ $con->id }}" action="{{ route('contactdel', ['id' => $con->id ]) }}" method="POST" style="display: none;">
+		                      @csrf
+		                      @method('delete')
+		                  </form>
+			 	</td>
 			 </tr>
+			 @endforeach
       		</tbody>
 
 		</table>

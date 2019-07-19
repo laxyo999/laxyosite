@@ -34,9 +34,28 @@
     <!-- Styles -->
 </head>
 <body style="padding-top: 100px;padding-bottom: 50px;background: whitesmoke">
-	     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-info">
-		    <a class="navbar-brand" target="_blank" href=""><span class=""><h4>Admin Panel Laxyo.com</h4></span> </a>
-		</nav>
+	     <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white shadow-sm">
+		    <div class="navbar-brand" target="_blank" href=""><span class=""><h4>Admin Panel Laxyo.com</h4></span> </div>
+        <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+              </ul>
+		   </nav>
           @yield('content')
      
    

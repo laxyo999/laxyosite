@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-// use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailable;
 use App\Page;
 use App\PageCategory;
 use App\ImgUpload;
-<<<<<<< HEAD
 use App\Post;
-=======
+
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMailable;
+use App\Mail\MailSendContact;
 use App\Mail\SendMailCompany;
 
->>>>>>> d3d2f12861f51b6c745f9b0a3aa17c8fbfda21a5
+
 class FrontendController extends Controller
 {   
     public function about(){
@@ -61,6 +60,7 @@ class FrontendController extends Controller
     }
     public function getCityList(Request $request)
     {     
+
        // return $request->state_id;
           $city = DB::table("city_mast")
                     ->where("state_code",$request->state_id)
@@ -69,6 +69,7 @@ class FrontendController extends Controller
     }
     public function submitmyform(Request $request)
     {
+     
         $name=$request->input('name');
         $email=$request->input('email');
         $address=$request->input('address');
@@ -92,19 +93,21 @@ class FrontendController extends Controller
                     "created_at"=> date('Y-m-d H:i:s'),
                     "updated_at"=> date('Y-m-d H:i:s'),
             );
-
+      
         $this->validate($request,[
-               'name'         => 'required|regex:/^[a-zA-Z]+$/u|max:255',       
-               'email'        => 'required|email|max:255|unique:users,email',       
-               "contact"      =>"required|regex:/^[0-9]+$/u|max:11|min:11|unique:users,contact",        
-               "pin"          =>"required|regex:/^[0-9]+$/u|max:6|min:6",        
-               "mobile"       =>"required|regex:/^[0-9]+$/u|max:10|min:10|unique:users,mobile"     
-        ],[
+               'name'    => 'required|regex:/^[a-zA-Z]+$/u|max:255',       
+               'email'   => 'required|email|max:255|unique:contacts,email',       
+               "contact" =>'required|regex:/^[0-9]+$/u|max:11|min:11|unique:contacts,contact',        
+               "pin"     =>"required|regex:/^[0-9]+$/u|max:6|min:6",        
+               "mobile"  =>"required|regex:/^[0-9]+$/u|max:10|min:10|unique:contacts,mobile",    
+        
             "name.required"   =>"Name Should be filled",
             "contact.required"=>"contact Should be filled",
         ]);
-        DB::table('users')->insert($data);
-        Mail::to($email)->send(new SendMailable($data));
+
+      DB::table('contacts')->insert($data);
+
+       Mail::to($email)->send(new MailSendContact($data));
         Mail::to('laxyo@gmail.com')->send(new SendMailCompany($data));
         return redirect()->back()->withInput()->with(['message'=>'Thank You For Contact Us We Will Contact You Soon...']);
 
@@ -117,7 +120,6 @@ class FrontendController extends Controller
     public function vendorform(Request $request)
     {
           $company_name    =$request->input('company_name');
-
           $company_website =$request->input('company_website');
           $person_name     =$request->input('person_name');
           $designation     =$request->input('designation');
@@ -128,7 +130,7 @@ class FrontendController extends Controller
           $fax             =$request->input('fax');
           $nature_business =$request->input('nature_business');
           $products        =$request->input('products');
-          $customer       =$request->input('customer');
+          $customer        =$request->input('customer');
           $pan             =$request->input('pan');
           $tan             =$request->input('tan');
           $tin             =$request->input('tin');
@@ -146,7 +148,7 @@ class FrontendController extends Controller
                       'fax'             =>$fax,
                       'nature_business' =>$nature_business,
                       'products'        =>$products,
-                      'customer'        =>$customer,
+                      'customers'        =>$customer,
                       'pan'             =>$pan,
                       'tan'             =>$tan,
                       'tin'             =>$tin,
