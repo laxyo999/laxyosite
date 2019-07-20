@@ -9,7 +9,7 @@
 <div class="container-fluid">
 	<div class="row">
   <div class="col-md-12 head">
-    
+    <a href="{{url('/home')}}" class="btn btn-primary">Home</a>
     <a href="{{url('/admin-career')}}" class="btn btn-primary">Career</a>
     <a href="{{url('/admin-vender')}}" class="btn btn-primary">Vender Registration</a>
     <a href="{{url('/admin-contact')}}" class="btn btn-primary">Contact</a>

@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 
-class SendMailable extends Mailable
+class SendMailable extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     public $data;
@@ -35,7 +35,6 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-
          return $this->view('mails.SendCareermail',compact('data'));
     }
 

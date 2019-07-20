@@ -19,7 +19,7 @@
 				<h2>Contact</h2>         
 				<nav id="breadcrumbs">              
 					<ul>                
-						<li><a href="{{url('/')}}">Home</a></li>                          
+						<li><a href="{{url('/')}}">Home</a></li> 
 						<li>Contact</li>             
 					</ul>           
 				</nav>          
@@ -111,18 +111,14 @@
 								<label>Select State</label>
 								<select id="state" name="state" class="form-control select-cont " value="">
 									<option>Select State</option>
-									{{-- @foreach($states as $state)
-										<option value="{{$state->state_code}}">{{$state->state_name}}</option>
-									@endforeach --}}
+									
 								</select> 
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4">
 								<label>city</label>
 								<select id="city" name="city" class="form-control select-cont " value="">
 									<option class="form-control">Select City</option>
-									{{-- @foreach($city as $cities)
-										<option value="{{$cities->city_code}}">{{$city->city_name}}</option>
-									@endforeach --}}
+									
 								</select>
 							</div>
 						
@@ -233,7 +229,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#country").change(function(){
+		$("#country").blur(function(){
 			var country_id = $(this).val();
 		 
 		$.ajax({ 
@@ -254,18 +250,22 @@
 			}
 		});
 	});
-		$("#state").change(function(){
+		$("#state").blur(function(){
 			var state_id=$(this).val();
 			$.ajax({ 
 				type:"GET",
 				url:"{{url('/getCityList')}}?state_id="+state_id,
 				success:function(data)
 				{	
-					// console.log(data);
+					if(data){
+					$("#city").empty();
 					$("#state").append('<option>Select</option>');
 					$.each(data,function(k,v){
 						$("#city").append('<option value="'+v.city_code+'">'+v.city_name+'</option>');
 					});
+				}else{
+					$("#city").empty();
+				}
 
 				}
 			});

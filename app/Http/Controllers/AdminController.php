@@ -22,10 +22,20 @@ class AdminController extends Controller
      }   
    
     public function cdestroy($id){
-      $destroy = Career::destroy($id);
-      $data = Career::all(); 
-      // unlink(public_path('public/document/{{$career->file}}'));
+      $destroy = Career::findOrFail($id);
+
+      if ($destroy->file == '') {
      
+          $destroy->delete();
+        }
+       else{
+         $destroy->delete();
+         Storage::delete('public/document/'.$destroy->file);
+         
+       }
+      
+      $data = Career::all();
+      
       return view('admin.careeradmin', compact('data'));
     }
 

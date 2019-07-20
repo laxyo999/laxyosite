@@ -8,6 +8,7 @@ use App\Feedback;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
+use App\Jobs\SendEmailJob;
 class CareerController extends Controller
 {
     public function submit(Request $request){
@@ -48,10 +49,10 @@ class CareerController extends Controller
             'mobileno'=> $request->mobileno,
             'doc_url' => $career->doc_url,
         );
+        
         $toEmail = "rvais@laxyosolutionsoft.com";
-        Mail::to($toEmail)->send(new SendMailable($data));
-
-     return redirect('/career')->with('success', 'Data Inserted Successfully');
+        Mail::to($toEmail)->queue(new SendMailable($data));
+        return redirect('/career')->with('success', 'Data Inserted Successfully');
    }
     
     public function index(){

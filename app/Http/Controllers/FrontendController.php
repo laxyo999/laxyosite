@@ -12,7 +12,7 @@ use App\Post;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailSendContact;
 use App\Mail\SendMailCompany;
-
+use App\Jobs\SendEmailContact;
 
 class FrontendController extends Controller
 {   
@@ -69,7 +69,18 @@ class FrontendController extends Controller
     }
     public function submitmyform(Request $request)
     {
-     
+        
+         $this->validate($request,[
+               'name'    => 'required|max:255|regex:/^[a-zA-Z ]+$/',       
+               'email'   => 'required|email|max:255|unique:contacts,email',       
+               "contact" =>'required|max:11|min:11|regex:/^([0-9\s\-\+\(\)]*)$/|unique:contacts,contact',        
+               "pin"     =>"required|max:6|min:6|regex:/^([0-9\s\-\+\(\)]*)$/",        
+               "mobile"  =>"required|max:10|min:10|regex:/^([0-9\s\-\+\(\)]*)$/|unique:contacts,mobile"
+               ],[    
+               "name.required" => "Name Should be filled",
+              "contact.required" => "contact Should be filled"
+        ]);
+        
         $name=$request->input('name');
         $email=$request->input('email');
         $address=$request->input('address');
@@ -94,22 +105,12 @@ class FrontendController extends Controller
                     "updated_at"=> date('Y-m-d H:i:s'),
             );
       
-        $this->validate($request,[
-               'name'    => 'required|regex:/^[a-zA-Z]+$/u|max:255',       
-               'email'   => 'required|email|max:255|unique:contacts,email',       
-               "contact" =>'required|regex:/^[0-9]+$/u|max:11|min:11|unique:contacts,contact',        
-               "pin"     =>"required|regex:/^[0-9]+$/u|max:6|min:6",        
-               "mobile"  =>"required|regex:/^[0-9]+$/u|max:10|min:10|unique:contacts,mobile",    
-        
-            "name.required"   =>"Name Should be filled",
-            "contact.required"=>"contact Should be filled",
-        ]);
+       
 
       DB::table('contacts')->insert($data);
-
-       Mail::to($email)->send(new MailSendContact($data));
-        Mail::to('laxyo@gmail.com')->send(new SendMailCompany($data));
-        return redirect()->back()->withInput()->with(['message'=>'Thank You For Contact Us We Will Contact You Soon...']);
+      Mail::to($email)->queue(new MailSendContact($data));
+      Mail::to('laxyo@gmail.com')->queue(new SendMailCompany($data));
+      return redirect()->back()->withInput()->with(['message'=>'Thank You For Contact Us We Will Contact You Soon...']);
 
     }
     public function vendor_registration(){
