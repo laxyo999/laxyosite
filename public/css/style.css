@@ -2377,7 +2377,7 @@ ul.popular_posts_list,ul.recent_posts_list{
     color:#fff;
     padding:0 10px 0 0;
     margin:0 0 0 5px;
-    background:url(../img/breadcrumbs.png) 100% 65% no-repeat
+    /*background:url(../img/breadcrumbs.png) 100% 65% no-repeat*/
 }
 #breadcrumbs ul li a,#breadcrumbs ul li:last-child a{
     color:#222

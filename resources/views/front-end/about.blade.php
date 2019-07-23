@@ -5,19 +5,16 @@
   
     <meta name="description" content= "Laxyo Energy Ltd. is a leading railway contract based service provider in India. Focused on delivering core services for complete railway work, operation and maintenance, laying and linking, private railway siding. Get the quality services for railway work, O&M in India."/>    
     <meta name="keywords" content="railway contract based services, operation and maintenance, operation and maintenance of power plants, railway laying and linking, private railway siding, education consultant, private railway siding consultant"/>  
-<<<<<<< HEAD
+
 @endsection
 @section('body')
  <section class="title_page bg_3">     
-        
-=======
+
 
 </head>
 
 <!--Start TITLE PAGE-->   
 <section class="title_page bg_3">     
-    
->>>>>>> d3d2f12861f51b6c745f9b0a3aa17c8fbfda21a5
 
     <div class="container">       
         <div class="row">         

@@ -6,7 +6,7 @@
 	}
 </style>
 
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
   <div class="col-md-12 head">
     <a href="{{url('/home')}}" class="btn btn-primary">Home</a>
@@ -18,16 +18,16 @@
   <a href="{{url('/admin-post')}}" class="btn btn-primary">Job Post</a>
   </div>
 </div>
-	<div class="card">
+	<div class="card" style="width:100%; display: table-caption;">
 		<table class="table table-bordered table-striped" id="vendertable">
 			<thead class="bg-dark" style="color: white;text-align: center;">
-				<tr style="width: 100%;">
+				<tr>
 				<th width="3%">Id</th>
 				<th width="5%">Company Name</th>
 				<th width="5%">Company Website</th>
 				<th width="5%">Contact Person Name</th>
 				<th width="5%">Designation</th>
-				<th width="5%">Email</th>
+				<th width="1%">Email</th>
 				<th width="10%">Postal Address</th>
 				<th width="5%">Telephone No.</th>
 				<th width="5%">Mobile No.</th>
