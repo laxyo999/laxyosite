@@ -1,9 +1,8 @@
 @extends('layouts.app')
-@section('body')
-<head>
-    <title>Infrastructure - Laxyo Energy Limited</title>
-</head>
+@section('title','Infrastructure - Laxyo Energy Limited')
+
 <!--Start TITLE PAGE-->
+@section('body')
 <section class="title_page bg_3">
   <div class="container">
     <div class="row">

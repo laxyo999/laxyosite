@@ -1,9 +1,8 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Vendor Registration - Laxyo Energy Limited</title>
-</head>
+@section('title','Vendor Registration - Laxyo Energy Limited')
+
 <!--Start TITLE PAGE-->		
+@section('body')
 <section class="title_page bg_3">			
 
 
@@ -171,13 +170,13 @@
 						<label class="marr">Nature Of Business <span style="color: #F34D2C;">*</span></label>
 					</div>
 					<div class="col-md-9 col-lg-9 col-sm-12">
+
 						<select name="nature_business" class="form-control select-cont" value="">
 							<option value="0">select</option>
 							@foreach($users as $user)
-<option value="{{$user->nature_bussi_name}}" {{ (old("nature_business") == $user->nature_bussi_name ? "selected":"") }}>{{$user->nature_bussi_name}}</option>
+                               <option value="{{$user->nature_bussi_name}}" {{ (old("nature_business") == $user->nature_bussi_name ? "selected":"") }}>{{$user->nature_bussi_name}}</option>
 									@endforeach
-								
-				        </select>
+			             </select>
 				         @error('nature_business')
                          <p class="text-danger">{{ $message }}</p>
                           @enderror
@@ -197,41 +196,7 @@
 				          @foreach($use as $uses)
 									<option value="{{$uses->product_name}}"{{old('products')==$uses->product_name ? "selected":" "}}>{{$uses->product_name}}</option>
 									@endforeach
-				        {{--   <option>Building material</option> --}}
-				         {{--  <option value="Cement">Cement</option>
-				          <option value="Chemicals">Chemicals</option>
-				          <option value="Civil Items">Civil Items</option>
-				          <option value="Civil Works">Civil Works</option>
-				          <option value="Construction Equipment">Construction Equipment</option>
-				          <option value="Construction Material">Construction Material</option>
-				          <option value="Coal">Coal</option>
-				          <option value="Coal Handling Equipment System">Coal Handling Equipment System</option>
-				          <option value="Computer">Computer</option>
-				          <option value="Crane">Crane</option>
-				          <option value="Hoist">Hoist</option>
-				          <option value="Fabrication Works">Fabrication Works</option>
-				          <option value="Fuel &amp; Lubricant">Fuel &amp; Lubricant</option>
-				          <option value="Fuel Handling System">Fuel Handling System</option>
-				          <option value="Furniture &amp; Fixtures">Furniture &amp; Fixtures</option>
-				          <option value="Gas">Gas</option>
-				          <option value="Grouting">Grouting</option>
-				          <option value="House-keeping">House-keeping</option>
-				          <option value="Instruments">Instruments</option>
-				          <option value="Instrumentation">Instrumentation</option>
-				          <option value="Office Equipment">Office Equipment</option>
-				          <option value="Oil &amp; Lubricant">Oil &amp; Lubricant</option>
-				          <option value="Paint &amp; Painting material">Paint &amp; Painting material</option>
-				          <option value="Reinforcement Steel">Reinforcement Steel</option>
-				          <option value="Safety Equipment Services">Safety Equipment Services</option>
-				          <option value="Site Related Contracts">Site Related Contracts</option>
-				          <option value="Software">Software</option>
-				          <option value="Structural Steel">Structural Steel</option>
-				          <option value="Testing Equipment">Testing Equipment</option>
-				          <option value="Tools">Tools</option>
-				          <option value="Vehicles">Vehicles</option>
-				          <option value="Welding Equipment">Welding Equipment</option>
-				          <option value="Welding Consumables">Welding Consumables</option>
-				          <option value="Workshop Machinery">Workshop Machinery</option> --}}
+				       
 				        </select>
 				        @error('products')
                          <p class="text-danger">{{ $message }}</p>
@@ -271,7 +236,7 @@
 						<input id="tan" name="tan" class="form-control" maxlength="100" value="{{old('tan')}}" placeholder="TAN" type="text" >
 					</div>
 				</div>
-		</div>
+			</div>
 		<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="col-md-3 col-lg-3 col-sm-12">

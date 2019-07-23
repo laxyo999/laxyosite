@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Power Plant Operation &amp; Maintenance Service, O&amp;M Contractors - Laxyo Energy Ltd.</title>  
+@section('title','Power Plant Operation &amp; Maintenance Service, O&amp;M Contractors - Laxyo Energy Ltd.')
+@section('meta') 
 	<meta name="description" content="Laxyo Group - India based prominent service providing company for operation and maintenance services for thermal plants, coal plants, railway contractual services, thermal power plant maintenance."> 
 	<meta name="keywords" content="operation and maintenance dairy plant, operation and maintenance of cement plant, operation and maintenance contractors, operation and maintenance of power plant, operation & maintenance , operation of plant , Maintenance of Plant,  O & M services for coal plants, O & M services for thermal power plants, operation and maintenance, operation and maintenance service providers, O&M power plants, power plant o&m services, operation and maintenance thermal power plant, O & M contractors india, operation and maintenance india, list of power plant o&m companies in india, operation and maintenance companies in india, list of power plant o&m companies in india.">    
-</head>
-<!--Start TITLE PAGE-->		
+@endsection
+<!--Start TITLE PAGE-->	
+@section('body')	
 <section class="title_page bg_3">			
 
 

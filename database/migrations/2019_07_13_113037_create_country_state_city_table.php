@@ -33,7 +33,9 @@ class CreateCountryStateCityTable extends Migration
             $table->increments('city_code');
             $table->string('city_name');
             $table->integer('state_code');            
-            $table->integer('country_code');            
+            $table->integer('country_code');   
+            $table->float('latitude')->nullable();  
+            $table->float('longitude')->nullable();           
             $table->timestamps();
              });
     }

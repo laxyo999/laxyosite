@@ -1,11 +1,11 @@
 ﻿@extends('layouts.app')
-@section('body')
-<head>
-	<title>  Operation and Maintenance, O & M | Laxyo Energy </title>  
+@section('title','Operation and Maintenance, O & M | Laxyo Energy')
+@section('meta')
 	<meta name="description" content= "Laxyo Offer comprehensive Operation and Maintenance contracts cover all services significant to run your power plant in a safe and most economical way.  The Contact will help you in reduce your risk and increase your profit."/>    
 	<meta name="keywords" content="operation & maintenance, operation and maintenance, operation and maintenance company, operation and maintenance of power plant  "/>
-</head>
-<!--Start TITLE PAGE-->		
+@endsection
+<!--Start TITLE PAGE-->	
+@section('body')	
 <section class="title_page bg_3">			
 
 <style type="text/css">

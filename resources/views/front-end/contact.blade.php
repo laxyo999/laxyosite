@@ -1,51 +1,15 @@
 @extends('layouts.app')
-@section('body')
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#country").change(function(){
-			var country_id=$(this).val();
-		// alert(country_id);
-		$.ajax({ 
-			type:"GET",
-			url:"{{url('/getStateList')}}?country_id="+country_id,
-			success:function(data)
-			{	
-				//console.log('in loop',data);
-				if(data){
-					$("#state").empty();
-					$("#state").append('<option>Select</option>');
-					$.each(data,function(k,v){
-						$("#state").append('<option value="'+v.state_code+'">'+v.state_name+'</option>');
-					});
-				}else{
-					$("#state").empty();
-				}
-			}
-		});
-	});
-		$("#state").change(function(){
-			var state_id=$(this).val();
-			$.ajax({ 
-				type:"GET",
-				url:"{{url('/getCityList')}}?state_id="+state_id,
-				success:function(data)
-				{	
-					// console.log(data);
-					$("#state").append('<option>Select</option>');
-					$.each(data,function(k,v){
-						$("#city").append('<option value="'+v.city_code+'">'+v.city_name+'</option>');
-					});
 
-				}
-			});
-		});
-	});
-</script> 
+@section('title','Contact - Laxyo Energy Limited')
+
+@section('body')
+ 
 <head>
 	<title>Contact - Laxyo Energy Limited</title>
 </head>
 <!-- End Header -->		
 <!--Start TITLE PAGE-->	
+@section('body')
 <section class="title_page bg_3">     
 
 
@@ -55,7 +19,7 @@
 				<h2>Contact</h2>         
 				<nav id="breadcrumbs">              
 					<ul>                
-						<li><a href="{{url('/')}}">Home</a></li>                          
+						<li><a href="{{url('/')}}">Home</a></li> 
 						<li>Contact</li>             
 					</ul>           
 				</nav>          
@@ -67,6 +31,7 @@
 <!--End TITLE PAGE-->
 <!-- Start Contact Page -->		
 <section class="content contact">			
+
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-12 col-12 effect-slide-bottom in">
@@ -144,14 +109,16 @@
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4">
 								<label>Select State</label>
-								<select id="state" name="state" class="form-control select-cont" value="">
+								<select id="state" name="state" class="form-control select-cont " value="">
 									<option>Select State</option>
+									
 								</select> 
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4">
 								<label>city</label>
 								<select id="city" name="city" class="form-control select-cont " value="">
 									<option class="form-control">Select City</option>
+									
 								</select>
 							</div>
 						
@@ -193,15 +160,17 @@
 						<div class="col-md-12 col-lg-12 col-sm-12">
 							<p class="pull-right"><i style="color: #F34D2C;">* Mandatory To Be Submitted</i></p>
 						</div>
-					</div>
 
-					<div class="row">
-						<div class="col-md-12">
-							<input data-loading-text="Loading..." class="btn btn-primary" value="Send message" type="submit" name="submit">
-							<input data-loading-text="" class="btn btn-success" value="Reset" type="reset">
-						</div>
-					</div>
-				</form>
+					
+				   </div>
+				   <div class="row">
+				   	<div class="col-md-12">
+				   		<button class="btn btn-success" type="submit" id="">Send Details</button>
+				   		<input type="reset" class="btn btn-danger" value="Cancel">
+				   	</div>
+				   </div>
+
+                </form>
 			</div>
 
 			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 well">
@@ -237,7 +206,6 @@
 					<ul class="widget_info_contact">
 						<li><i class="fa fa-map-marker"></i><p>CF-5, Madhav Nagar, Chanderia, Dist. Chittorgarh, (Raj.) 312021 </p></li>
 						<li><i class="fa fa-phone-square"></i><p>+91-1474-256710</p></li>
-
 					</div>
 					<div class="widget_content">
 						<div class="title_content">
@@ -258,5 +226,51 @@
 		</div>
 	</section>
 	<!-- End Contact Page -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#country").blur(function(){
+			var country_id = $(this).val();
+		 
+		$.ajax({ 
+			type:"GET",
+			url:"{{url('/getStateList')}}?country_id="+country_id,
+			success:function(data)
+			{	
+				//console.log('in loop',data);
+				if(data){
+					$("#state").empty();
+					$("#state").append('<option>Select</option>');
+					$.each(data,function(k,v){
+						$("#state").append('<option value="'+v.state_code+'">'+v.state_name+'</option>');
+					});
+				}else{
+					$("#state").empty();
+				}
+			}
+		});
+	});
+		$("#state").blur(function(){
+			var state_id=$(this).val();
+			$.ajax({ 
+				type:"GET",
+				url:"{{url('/getCityList')}}?state_id="+state_id,
+				success:function(data)
+				{	
+					if(data){
+					$("#city").empty();
+					$("#state").append('<option>Select</option>');
+					$.each(data,function(k,v){
+						$("#city").append('<option value="'+v.city_code+'">'+v.city_name+'</option>');
+					});
+				}else{
+					$("#city").empty();
+				}
+
+				}
+			});
+		});
+	});
+</script>
 
 	@endsection

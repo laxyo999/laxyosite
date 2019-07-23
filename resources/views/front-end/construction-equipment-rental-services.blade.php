@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Construction Equipments on Rental Basis Offered by Laxyo Group of Energy.</title>  
+@section('title','Construction Equipments on Rental Basis Offered by Laxyo Group of Energy.')
+@section('meta')  
   <meta name="description" content= "Laxyo Group of energy is providing range of Construction equipments - earthmoving equipment, concrete equipment, road construction equipment, material preparation etc on rental basis."/>    
   <meta name="keywords" content="Earthmoving Equipment, Concrete Equipment ,Material Handling Equipment, Road Construction Equipment,Tunneling and Drilling ,dumper, articulated haulers, pavers, boring equipment, concrete pumps, Construction equipment rental services"/>
-</head>
+@endsection
 
 <!--Start TITLE PAGE-->		
+@section('body')
 <section class="title_page bg_3">			
 
 

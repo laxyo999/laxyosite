@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Mining Services Providers | Mining Contractors | Mining Companies in India</title>  
+@section('title','Mining Services Providers | Mining Contractors | Mining Companies in India')
+@section('meta')  
   <meta name="description" content= "Laxyo has large range of products and blasting related services to the mining, quarrying and construction industries. We also offer mining services for large scale to small scale mining."/>    
   <meta name="keywords" content="Mining Services, mining ompanies in India, list of mining ompanies in India, Geology and mining, mineral processing, underground mining, Hydraulic mining, Consulting engineering, mining companies in india, list of private mining companies in india, mining contractors in india."/>
-</head>
+@endsection
 
 <!--Start TITLE PAGE-->		
+@section('body')
 <section class="title_page bg_3">			
 
 

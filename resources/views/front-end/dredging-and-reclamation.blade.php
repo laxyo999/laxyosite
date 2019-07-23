@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('body')
-<head>
-	<title>Dredging Contractors, Dredger Rental Equipment Companies and Dredger Owners in India</title>  
+@section('title','Dredging Contractors, Dredger Rental Equipment Companies and Dredger Owners in India')
+@section('meta')  
   <meta name="description" content= "Laxyo Group of dredging contractors provides dredging equipment rental, small dredge on lease, dredger on rent and land & reclamation service in India."/>    
   <meta name="keywords" content="Dredger service providers, dredger on rent, dredger owners in india, dredging equipment on rent, dredging equipment rental, rental dredging equipment, list of dredging companies in india, small dredge on lease, dredging contractors, Dredging companies in India, Dredging Machine and Contractors in India, dredgers and land reclamation service, dredging and reclamation, dredging contractors in india"/>  
-</head>
+@endsection
 
-<!--Start TITLE PAGE-->		
+<!--Start TITLE PAGE-->	
+@section('body')	
 <section class="title_page bg_3">			
 
 

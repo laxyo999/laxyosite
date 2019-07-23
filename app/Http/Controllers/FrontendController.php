@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-// use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailable;
 use App\Page;
 use App\PageCategory;
 use App\ImgUpload;
+use App\Post;
+
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMailable;
+use App\Mail\MailSendContact;
 use App\Mail\SendMailCompany;
+use App\Jobs\SendEmailContact;
 
 class FrontendController extends Controller
 {   
@@ -57,6 +60,7 @@ class FrontendController extends Controller
     }
     public function getCityList(Request $request)
     {     
+
        // return $request->state_id;
           $city = DB::table("city_mast")
                     ->where("state_code",$request->state_id)
@@ -65,6 +69,18 @@ class FrontendController extends Controller
     }
     public function submitmyform(Request $request)
     {
+        
+         $this->validate($request,[
+               'name'    => 'required|max:255|regex:/^[a-zA-Z ]+$/',       
+               'email'   => 'required|email|max:255|unique:contacts,email',       
+               "contact" =>'required|max:11|min:11|regex:/^([0-9\s\-\+\(\)]*)$/|unique:contacts,contact',        
+               "pin"     =>"required|max:6|min:6|regex:/^([0-9\s\-\+\(\)]*)$/",        
+               "mobile"  =>"required|max:10|min:10|regex:/^([0-9\s\-\+\(\)]*)$/|unique:contacts,mobile"
+               ],[    
+               "name.required" => "Name Should be filled",
+              "contact.required" => "contact Should be filled"
+        ]);
+        
         $name=$request->input('name');
         $email=$request->input('email');
         $address=$request->input('address');
@@ -88,21 +104,13 @@ class FrontendController extends Controller
                     "created_at"=> date('Y-m-d H:i:s'),
                     "updated_at"=> date('Y-m-d H:i:s'),
             );
+      
+       
 
-        $this->validate($request,[
-               'name'         => 'required|regex:/^[a-zA-Z]+$/u|max:255',       
-               'email'        => 'required|email|max:255|unique:users,email',       
-               "contact"      =>"required|regex:/^[0-9]+$/u|max:11|min:11|unique:users,contact",        
-               "pin"          =>"required|regex:/^[0-9]+$/u|max:6|min:6",        
-               "mobile"       =>"required|regex:/^[0-9]+$/u|max:10|min:10|unique:users,mobile"     
-        ],[
-            "name.required"   =>"Name Should be filled",
-            "contact.required"=>"contact Should be filled",
-        ]);
-        DB::table('users')->insert($data);
-        Mail::to($email)->send(new SendMailable($data));
-        Mail::to('laxyo@gmail.com')->send(new SendMailCompany($data));
-        return redirect()->back()->withInput()->with(['message'=>'Thank You For Contact Us We Will Contact You Soon...']);
+      DB::table('contacts')->insert($data);
+      Mail::to($email)->queue(new MailSendContact($data));
+      Mail::to('laxyo@gmail.com')->queue(new SendMailCompany($data));
+      return redirect()->back()->withInput()->with(['message'=>'Thank You For Contact Us We Will Contact You Soon...']);
 
     }
     public function vendor_registration(){
@@ -113,7 +121,6 @@ class FrontendController extends Controller
     public function vendorform(Request $request)
     {
           $company_name    =$request->input('company_name');
-
           $company_website =$request->input('company_website');
           $person_name     =$request->input('person_name');
           $designation     =$request->input('designation');
@@ -124,7 +131,7 @@ class FrontendController extends Controller
           $fax             =$request->input('fax');
           $nature_business =$request->input('nature_business');
           $products        =$request->input('products');
-          $customer       =$request->input('customer');
+          $customer        =$request->input('customer');
           $pan             =$request->input('pan');
           $tan             =$request->input('tan');
           $tin             =$request->input('tin');
@@ -142,7 +149,7 @@ class FrontendController extends Controller
                       'fax'             =>$fax,
                       'nature_business' =>$nature_business,
                       'products'        =>$products,
-                      'customer'        =>$customer,
+                      'customers'        =>$customer,
                       'pan'             =>$pan,
                       'tan'             =>$tan,
                       'tin'             =>$tin,
@@ -177,8 +184,16 @@ class FrontendController extends Controller
          return redirect()->back()->withInput()->with(['vender_message'=>'Send Message Successfully']);
         }
     public function career(){
-    	return view('front-end.career');
+        $post = Post::all();
+        return view('front-end.career', compact('post'));
     }
+    public function careerform($id){
+        $post = Post::findOrFail($id);
+        return view('front-end.careerformapply', compact('post'));
+    }
+
+
+
     public function laxyo_group_companies(){
         return view('front-end.laxyo-group-companies');
     }
@@ -188,4 +203,6 @@ class FrontendController extends Controller
     public function operation_maintenance(){
         return view('front-end.operation-and-maintenance');
     }
+
+
 }

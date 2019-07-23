@@ -1,3 +1,44 @@
+<<<<<<< HEAD
+@extends('layouts.app')
+@section('title','Amphibious Excavator | Laxyo Energy Ltd.')
+@section('meta')
+  <meta name="description" content= "Laxyo group offer amphibious excavator dredging equipment on rental and contract basis with small to big capacity full-fledged quality-focused service."/>    
+  <meta name="keywords" content="amphibious excavator, amphibious excavator rental, amphibious excavator contractors, small amphibious excavator, amphibious excavator india"/> 
+@endsection
+
+<!--Start TITLE PAGE-->	
+@section('body')	
+<section class="title_page bg_3">			
+
+
+<div class="container">				
+<div class="row">					
+<div class="col-lg-12 col-md-12 col-sm-12">						
+<h2>Amphibious Excavator</h2>						
+<nav id="breadcrumbs">							
+<ul>								
+<li><a href="{{url('/')}}">Home</a></li>	
+<li><a href="{{url('/services')}}">Services</a></li>														
+<li>Amphibious Excavator</li>							
+</ul>						
+</nav>					
+</div>				
+</div>			
+</div>		
+</section>		
+<!--End TITLE PAGE-->		
+
+<section class="content sb_right">      
+<div class="container">       
+<div class="row">
+  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+    
+    <!--  Page slider start here-->
+    <div id="owl-slider" class="owl-carousel owl-theme pb_30">
+      <div class="item"><img src="{{asset('img/excavator/Amphibious Excavator.jpg')}}"></div>
+      <div class="item"><img src="{{asset('img/excavator/Amphibious_Excavator.jpg')}}"></div>
+      
+=======
 @extends('layouts.app') @section('body')
 
 <head>
@@ -21,6 +62,7 @@
           </ul>
         </nav>
       </div>
+>>>>>>> d3d2f12861f51b6c745f9b0a3aa17c8fbfda21a5
     </div>
   </div>
 </section>
