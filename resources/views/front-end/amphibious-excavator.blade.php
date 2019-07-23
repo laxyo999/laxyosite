@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @extends('layouts.app')
 @section('title','Amphibious Excavator | Laxyo Energy Ltd.')
 @section('meta')
@@ -8,44 +8,6 @@
 
 <!--Start TITLE PAGE-->	
 @section('body')	
-<section class="title_page bg_3">			
-
-
-<div class="container">				
-<div class="row">					
-<div class="col-lg-12 col-md-12 col-sm-12">						
-<h2>Amphibious Excavator</h2>						
-<nav id="breadcrumbs">							
-<ul>								
-<li><a href="{{url('/')}}">Home</a></li>	
-<li><a href="{{url('/services')}}">Services</a></li>														
-<li>Amphibious Excavator</li>							
-</ul>						
-</nav>					
-</div>				
-</div>			
-</div>		
-</section>		
-<!--End TITLE PAGE-->		
-
-<section class="content sb_right">      
-<div class="container">       
-<div class="row">
-  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-    
-    <!--  Page slider start here-->
-    <div id="owl-slider" class="owl-carousel owl-theme pb_30">
-      <div class="item"><img src="{{asset('img/excavator/Amphibious Excavator.jpg')}}"></div>
-      <div class="item"><img src="{{asset('img/excavator/Amphibious_Excavator.jpg')}}"></div>
-      
-=======
-@extends('layouts.app') @section('body')
-
-<head>
-  <title>Amphibious Excavator | Laxyo Energy Ltd.</title>
-  <meta name="description" content="Laxyo group offer amphibious excavator dredging equipment on rental and contract basis with small to big capacity full-fledged quality-focused service." />
-  <meta name="keywords" content="amphibious excavator, amphibious excavator rental, amphibious excavator contractors, small amphibious excavator, amphibious excavator india" />
-</head>
 <!--Start TITLE PAGE-->
 <section class="title_page bg_3">
   <div class="container">
@@ -62,7 +24,6 @@
           </ul>
         </nav>
       </div>
->>>>>>> d3d2f12861f51b6c745f9b0a3aa17c8fbfda21a5
     </div>
   </div>
 </section>
@@ -80,18 +41,7 @@
             <img src="{{asset('img/excavator/Amphibious_Excavator.jpg')}}">
           </div>
         </div>
-        <script type="text/javascript">
-          $(document).ready(function() {
-                  $("#owl-slider").owlCarousel({
-                    autoPlay: 7000, //Set AutoPlay to 7 seconds
-                    navigation : false, // Show next and prev buttons
-                    slideSpeed : 300,
-                    paginationSpeed : 400,
-                    singleItem:true,
-                    pagination: false,
-                  }); 
-                });
-        </script>
+       
         <!--  Page slider end here-->
         <div class="title_content">
           <h3>Amphibious Excavator</h3> 
@@ -126,10 +76,24 @@
         </div>
       </div>
       <!--Sidebar Widget-->
-      <div class="col-sm-3 col-md-3 col-lg-3">@include('partials.sidebar')</div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+      @include('partials.sidebar')
+    </div>
     </div>
   </div>
   <!--END ROW-->
   </div>
 </section>
+ <script type="text/javascript">
+          $(document).ready(function() {
+                  $("#owl-slider").owlCarousel({
+                    autoPlay: 7000, //Set AutoPlay to 7 seconds
+                    navigation : false, // Show next and prev buttons
+                    slideSpeed : 300,
+                    paginationSpeed : 400,
+                    singleItem:true,
+                    pagination: false,
+                  }); 
+                });
+        </script>
 @endsection

@@ -158,9 +158,9 @@ class FrontendController extends Controller
                       'service_tax_no'  =>$service_tax_no,
                   );
        $this->validate($request,[
-            'company_name'   =>'required|regex:/^[a-zA-Z]+$/u|max:255',       
-            'person_name'    =>'required|regex:/^[a-zA-Z]+$/u|max:255',       
-            'designation'    =>'required|regex:/^[a-zA-Z]+$/u|max:255',       
+            'company_name'   =>'required|regex:/^[a-zA-Z ]+$/u|max:255',       
+            'person_name'    =>'required|regex:/^[a-zA-Z ]+$/u|max:255',       
+            'designation'    =>'required|regex:/^[a-zA-Z  ]+$/u|max:255',       
             'email'          => 'required|email|max:255|unique:vender_ragistration,email', 
             'postal_address' =>'required|regex:/^[a-zA-Z0-9]+$/u|max:255', 
             'telephone_no'   =>'required|regex:/^[0-9]+$/u|max:11|min:11|unique:vender_ragistration,telephone_no',

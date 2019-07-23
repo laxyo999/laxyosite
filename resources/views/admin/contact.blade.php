@@ -6,7 +6,7 @@
 	}
 </style>
 
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
 		  <div class="col-md-12 head">
 		    <a href="{{url('/home')}}" class="btn btn-primary">Home</a>
@@ -18,7 +18,7 @@
 		  <a href="{{url('/admin-post')}}" class="btn btn-primary">Job Post</a>
 		  </div>
 		</div>
-	<div class="card">
+	<div class="card" style="width:100%; display: table-caption;">
 		<table class="table table-bordered table-striped" id="contacttable">
 			<thead class="bg-dark" style="color: white;text-align: center;width: 100%;">
 				<tr style="">

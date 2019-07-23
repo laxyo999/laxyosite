@@ -9,7 +9,7 @@
     margin-bottom: 50px;
   }
 </style>
-<div class="container-fluid">
+<div class="container">
 <div class="row">
   <div class="col-md-12 head">
     <a href="{{url('/home')}}" class="btn btn-primary">Home</a>
