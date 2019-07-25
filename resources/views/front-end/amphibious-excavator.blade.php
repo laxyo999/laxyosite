@@ -35,10 +35,10 @@
         <!--  Page slider start here-->
         <div id="owl-slider" class="owl-carousel owl-theme pb_30">
           <div class="item">
-            <img src="{{asset('img/excavator/Amphibious Excavator.jpg')}}">
+            <img src="{{asset('img/excavator/Amphibious Excavator.jpg')}}" width="100%">
           </div>
           <div class="item">
-            <img src="{{asset('img/excavator/Amphibious_Excavator.jpg')}}">
+            <img src="{{asset('img/excavator/Amphibious_Excavator.jpg')}}" width="100%">
           </div>
         </div>
        

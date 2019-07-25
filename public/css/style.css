@@ -17,6 +17,43 @@ body{
     margin:0;
     padding:0
 }
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .sb_right{
+        margin-top: 17px;
+  }
+  .laxyo_group{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+}
+@media (min-width: 360px){
+ #breadcrumbs{
+        margin-left: 52px;
+  } 
+  
+}
+@media (min-width: 361px) and (max-width: 414px) {
+  #breadcrumbs{
+    top: 70px;
+    margin-right: 67px;
+}
+}
+@media (max-width: 320px){
+   #breadcrumbs{
+        top: -102px;
+    margin-left: 39px;
+  }
+}
+@media (min-width: 320px){
+   #breadcrumbs{
+       
+    margin-left: 39px;
+  }
+}
+
+
 .content{
     padding:40px 0;
     position:relative
@@ -322,9 +359,9 @@ header.active .top_head,header.active .top_head p,header.active .top_head ul.soc
     font-family:Lato,sans-serif;
     line-height:50px
 }
-.title_content{
+/*.title_content{
     position:relative
-}
+}*/
 .title_content>h3:after{
     position:absolute
 }
@@ -2289,6 +2326,7 @@ ul.popular_posts_list,ul.recent_posts_list{
     z-index:0;
     left:15px
 }
+
 .title_page.bg_1,.title_page.bg_2,.title_page.bg_3,.title_page.bg_4{
     background-attachment:scroll;
     background-repeat:no-repeat
@@ -4272,7 +4310,7 @@ div.grid_columns [class*=col-lg-] span.col_block{
     }
     .navbar_brand img{
         margin:10px auto 0;
-        width:50%
+        width:50%!important;
     }
     #responsive a,#responsive>li{
         width:100%;
@@ -4595,11 +4633,12 @@ div.grid_columns [class*=col-lg-] span.col_block{
     #mobile-navigation a.menu-trigger{
         background:#ed5f43;
         color:#fff;
-        float:left;
+        float:right;
         font-size:28px;
         left:0;
         margin:auto;
-        padding:20px 12px!important;
+     /*   padding:20px 12px!important;*/
+       padding: 5px 9px!important;
         right:0;
         text-align:center;
         z-index:9999;
@@ -4928,6 +4967,7 @@ div.grid_columns [class*=col-lg-] span.col_block{
     }
     .navbar_brand img{
         width:70%
+
     }
     .project_container:hover .hover_link{
         top:40%;

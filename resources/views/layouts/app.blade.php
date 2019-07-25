@@ -44,7 +44,7 @@
     </div>
    
      
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/983c841b4568323151722b812/d7ea3f42db66c2e6d4db7ff51.js");</script>
+ {{--  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/983c841b4568323151722b812/d7ea3f42db66c2e6d4db7ff51.js");</script> --}}
   
    
 @yield('js')

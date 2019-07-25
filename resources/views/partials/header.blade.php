@@ -1,4 +1,3 @@
-
     <div class="top_head">
       <div class="container">
         <div class="row">
@@ -38,7 +37,7 @@
       <div class="hed affix-top">
         <div class="container">
           <div class="row">   
-            <div class="col-lg-2 col-md-2 col-sm-12">
+            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 p-0">
               <div id="mobile-navigation"> 
                 <a href="#menu" class="menu-trigger"> 
                   <i class="fa fa-bars"></i> 
@@ -47,7 +46,7 @@
 
               <div class="navbar_brand"> <a href="http://www.laxyo.com"><img alt="laxyo logo" src="{{ asset('images/laxyo-logo.png') }}"></a> </div>
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-12 pull-right">
+            <div class="col-lg-10 col-md-12 col-sm-12 pull-right p-0">
               <nav id="navigation" class="menu">
                 <ul id="responsive">
                   <li class="active">
@@ -231,7 +230,7 @@
         </div>
       </div>
     </header>
-   {{--  <script type="text/javascript">
+    <script type="text/javascript">
 		$(document).ready(function() {
 		  $(".menu-trigger").click(function () {
 		    $(".menu,#responsive").toggleClass("open");
@@ -239,5 +238,5 @@
 
 		});
 
-	</script> --}}
+	</script>
 	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/983c841b4568323151722b812/d7ea3f42db66c2e6d4db7ff51.js");</script>

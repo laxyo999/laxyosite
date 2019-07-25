@@ -39,6 +39,7 @@ Route::get('/construction_equipment_rental_services', 'FrontendController@constr
 Route::get('/clients', 'FrontendController@clients');
 Route::get('/infrastructure', 'FrontendController@infrastructure');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
+Route::get('/contact1', 'FrontendController@contact1')->name('contact');
 
 Route::post('/submitmyform', 'FrontendController@submitmyform');
 

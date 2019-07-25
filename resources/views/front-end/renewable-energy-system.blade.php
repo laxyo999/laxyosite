@@ -35,9 +35,12 @@ operation and maintenance of solar power plant, Rooftop systems for home, solar 
     
     <!--  Page slider start here-->
     <div id="owl-slider" class="owl-carousel owl-theme pb_30">
-      <div class="item"><img src="{{asset('img/renewable/renewable-enegy.jpg')}}"></div>
-      <div class="item"><img src="{{asset('img/renewable/renewable-enegy.jpg')}}"></div>
-      <div class="item"><img src="{{asset('img/renewable/renewable-enegy.jpg')}}"></div>
+      <div class="item"><img src="{{asset('img/renewable/renewable-enegy.jpg')}}" width="100%">
+      </div>
+      <div class="item"><img src="{{asset('img/renewable/renewable-enegy.jpg')}}" width="100%">
+      </div>
+      <div class="item"><img src="{{asset('img/renewable/renewable-enegy.jpg')}}" width="100%">
+      </div>
     </div>
     <script type="text/javascript">
       $(document).ready(function() {

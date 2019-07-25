@@ -46,27 +46,31 @@ class FrontendController extends Controller
     public function infrastructure(){
     	return view('front-end.infrastructure');
     }
+    public function contact1(){
+      return view('front-end.contact1');
+    }
+    
     public function contact(Request $request){
-        $country_list=DB::table('country_mast')->orderBy('country_name')->get();
-        return view('front-end.contact')->with('country_list', $country_list);
+        // $country_list=DB::table('country_mast')->orderBy('country_name')->get();
+        return view('front-end.contact');
     }
-    public function getStateList(Request $request)
-    {
-       // return $request->country_id;
-        $states = DB::table("state_mast")
-                    ->where("country_code",$request->country_id)
-                    ->get();
-        return $states;
-    }
-    public function getCityList(Request $request)
-    {     
+    // public function getStateList(Request $request)
+    // {
+    //    // return $request->country_id;
+    //     $states = DB::table("state_mast")
+    //                 ->where("country_code",$request->country_id)
+    //                 ->get();
+    //     return $states;
+    // }
+    // public function getCityList(Request $request)
+    // {     
 
-       // return $request->state_id;
-          $city = DB::table("city_mast")
-                    ->where("state_code",$request->state_id)
-                    ->get();
-       return $city;
-    }
+    //    // return $request->state_id;
+    //       $city = DB::table("city_mast")
+    //                 ->where("state_code",$request->state_id)
+    //                 ->get();
+    //    return $city;
+    // }
     public function submitmyform(Request $request)
     {
         
@@ -81,23 +85,23 @@ class FrontendController extends Controller
               "contact.required" => "contact Should be filled"
         ]);
         
-        $name=$request->input('name');
-        $email=$request->input('email');
+        $name   =$request->input('name');
+        $email  =$request->input('email');
         $address=$request->input('address');
-        $city=$request->input('city');
-        $pin=$request->input('pin');
-        $state=$request->input('state');
-        $country=$request->input('country');
+        // $city   =$request->input('city');
+        $pin    =$request->input('pin');
+        // $state  =$request->input('state');
+        // $country=$request->input('country');
         $contact=$request->input('contact');
-        $mobile=$request->input('mobile');
+        $mobile =$request->input('mobile');
         $message=$request->input('message');
-        $data=array("name"      => $name,
+        $data   =array("name"      => $name,
                     "email"     => $email,
                     "address"   => $address,
-                    "city"      => $city,
+                    // "city"      => $city,
                     "pin"       => $pin,
-                    "state"     => $state,
-                    "country"   => $country,
+                    // "state"     => $state,
+                    // "country"   => $country,
                     "contact"   => $contact,
                     "mobile"    => $mobile,
                     "message"   => $message,
@@ -109,6 +113,7 @@ class FrontendController extends Controller
 
       DB::table('contacts')->insert($data);
       Mail::to($email)->queue(new MailSendContact($data));
+
       Mail::to('laxyo@gmail.com')->queue(new SendMailCompany($data));
       return redirect()->back()->withInput()->with(['message'=>'Thank You For Contact Us We Will Contact You Soon...']);
 
@@ -149,7 +154,7 @@ class FrontendController extends Controller
                       'fax'             =>$fax,
                       'nature_business' =>$nature_business,
                       'products'        =>$products,
-                      'customers'        =>$customer,
+                      'customer'        =>$customer,
                       'pan'             =>$pan,
                       'tan'             =>$tan,
                       'tin'             =>$tin,

@@ -36,7 +36,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"> 
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 laxyo_group"> 
         <!-- service 1 -->
         <div class="row pb_30">
           <div class="title_content">
